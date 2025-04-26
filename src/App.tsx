@@ -214,7 +214,7 @@ function App() {
       backgroundColor: '#1a1a1a'
     }}>
       <CityMap
-        mapImage="/map.png"
+        mapImage="/AoCCaravan/map.png"
         cities={cities}
         width={dimensions.width}
         height={dimensions.height}
