@@ -27,9 +27,14 @@ export interface City {
         y: number;  // Y coordinate on the map image
     };
     originalCoordinates: {
-        x: number;  // Original X coordinate
-        y: number;  // Original Y coordinate
-        z: number;  // Original Z coordinate (elevation)
+        x: number;  // Original X coordinate for source
+        y: number;  // Original Y coordinate for source
+        z: number;  // Original Z coordinate (elevation) for source
+    };
+    destinationCoordinates: {
+        x: number;  // Original X coordinate for destination
+        y: number;  // Original Y coordinate for destination
+        z: number;  // Original Z coordinate (elevation) for destination
     };
     population?: number;  // Optional population data
     description?: string;  // Optional city description

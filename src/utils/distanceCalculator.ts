@@ -4,14 +4,14 @@ interface WorldCoordinate {
     z: number;
 }
 
-export function calculateDistance(coord1: WorldCoordinate, coord2: WorldCoordinate): number {
+export function calculateDistance(sourceCoord: WorldCoordinate, destCoord: WorldCoordinate): number {
     // Convert coordinates to kilometers (assuming the coordinates are in meters)
-    const x1 = coord1.x / 10000;
-    const y1 = coord1.y / 10000;
-    const z1 = coord1.z / 10000;  // Include elevation in calculation
-    const x2 = coord2.x / 10000;
-    const y2 = coord2.y / 10000;
-    const z2 = coord2.z / 10000;  // Include elevation in calculation
+    const x1 = sourceCoord.x / 10000;
+    const y1 = sourceCoord.y / 10000;
+    const z1 = sourceCoord.z / 10000;  // Include elevation in calculation
+    const x2 = destCoord.x / 10000;
+    const y2 = destCoord.y / 10000;
+    const z2 = destCoord.z / 10000;  // Include elevation in calculation
 
     // Calculate Euclidean distance in 3D space including elevation
     const dx = x2 - x1;

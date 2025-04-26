@@ -122,7 +122,7 @@ export const CityMap: React.FC<CityMapProps> = ({ mapImage, cities, width, heigh
         if (startCity && endCity) {
             const distance = calculateDistance(
                 startCity.originalCoordinates,
-                endCity.originalCoordinates
+                endCity.destinationCoordinates
             );
             return formatDistance(distance);
         }
@@ -133,9 +133,9 @@ export const CityMap: React.FC<CityMapProps> = ({ mapImage, cities, width, heigh
         if (!startCity || !endCity) return 0;
 
         // Calculate raw distance in original units (before km conversion)
-        const dx = endCity.originalCoordinates.x - startCity.originalCoordinates.x;
-        const dy = endCity.originalCoordinates.y - startCity.originalCoordinates.y;
-        const dz = endCity.originalCoordinates.z - startCity.originalCoordinates.z;
+        const dx = endCity.destinationCoordinates.x - startCity.originalCoordinates.x;
+        const dy = endCity.destinationCoordinates.y - startCity.originalCoordinates.y;
+        const dz = endCity.destinationCoordinates.z - startCity.originalCoordinates.z;
         const rawDistance = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
         let totalProfit = 0;
