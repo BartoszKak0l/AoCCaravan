@@ -146,6 +146,10 @@ export const CityMap: React.FC<CityMapProps> = ({ mapImage, cities, width, heigh
             totalProfit += sellPrice * amount;
         });
 
+        if (rawDistance > 1000000) {
+            totalProfit *= 1.2;
+        }
+
         return totalProfit;
     };
 
