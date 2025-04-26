@@ -13,27 +13,27 @@ const generateTradePrices = (basePrice: number, variance: number = 0.4) => {
   };
 };
 
-function App() {
-  // Original map aspect ratio (based on the previous 1320x900 dimensions)
-  const MAP_ASPECT_RATIO = 1320 / 900;
-  
-  const calculateDimensions = () => {
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    
-    // Try to fit to width first
-    let width = viewportWidth;
-    let height = width / MAP_ASPECT_RATIO;
-    
-    // If too tall, fit to height instead
-    if (height > viewportHeight) {
-      height = viewportHeight;
-      width = height * MAP_ASPECT_RATIO;
-    }
-    
-    return { width, height };
-  };
+// Original map aspect ratio (based on the previous 1320x900 dimensions)
+const MAP_ASPECT_RATIO = 1320 / 900;
 
+const calculateDimensions = () => {
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+  
+  // Try to fit to width first
+  let width = viewportWidth;
+  let height = width / MAP_ASPECT_RATIO;
+  
+  // If too tall, fit to height instead
+  if (height > viewportHeight) {
+    height = viewportHeight;
+    width = height * MAP_ASPECT_RATIO;
+  }
+  
+  return { width, height };
+};
+
+function App() {
   const [dimensions, setDimensions] = React.useState(calculateDimensions());
 
   React.useEffect(() => {
@@ -43,7 +43,7 @@ function App() {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, []); // calculateDimensions is now stable since it's outside the component
 
   // Base prices for different cargo rarities
   const basePrices = {
